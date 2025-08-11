@@ -15,13 +15,6 @@ public class PlayerCondition : MonoBehaviour, IDamagable
 
     private void Update()
     {
-        //test
-        if(uiCondition == null)
-        {
-            uiCondition = UIManager.Instance.uiCondition;
-            Debug.Log("uiCondition이 null인데요");
-            return;
-        }
         Health.RemoveValue(Health.passiveValue * Time.deltaTime);
         //허기 감소
         //허기 0 이하 일시 체력 감소
