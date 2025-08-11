@@ -22,7 +22,8 @@ MonoBehaviour:
   usables:
   - Usable: 0
     value: -3
-  usableDurations:
-  - UsableDuration: 0
-    durationValue: 3
+  usableEffects:
+  - UsableEffect: 0
+    value: 3
+    durationValue: 4
   equipPrefab: {fileID: 0}

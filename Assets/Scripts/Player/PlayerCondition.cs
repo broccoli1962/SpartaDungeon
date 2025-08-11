@@ -50,6 +50,9 @@ public class PlayerCondition : MonoBehaviour, IDamagable
                 case EUsableEffectType.Regenation:
                     testCoroutine = StartCoroutine(HealthRegen(effect.value ,effect.durationValue));
                     break;
+                case EUsableEffectType.Speed:
+                    testCoroutine = StartCoroutine(SpeedIncrease(effect.value, effect.durationValue));
+                    break;
             }
         }
     }
@@ -67,5 +70,23 @@ public class PlayerCondition : MonoBehaviour, IDamagable
             yield return new WaitForSeconds(0.1f);
             timer += tick;
         }
+    }
+
+    IEnumerator SpeedIncrease(float value, float duration)
+    {
+        float timer = 0f;
+        float tick = 0.1f;
+
+        float speed = PlayerManager.Instance.player.controller.moveSpeed;
+        PlayerManager.Instance.player.controller.moveSpeed += value;
+
+        while (timer < duration)
+        {
+            Debug.Log($"남은 시간 {duration - timer}");
+            yield return new WaitForSeconds(0.1f);
+            timer += tick;
+        }
+
+        PlayerManager.Instance.player.controller.moveSpeed = speed;
     }
 }
