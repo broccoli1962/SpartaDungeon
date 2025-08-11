@@ -362,7 +362,19 @@ MonoBehaviour:
     m_ActionId: 129d65ea-251a-4cd4-b9cb-e9271463e678
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 476262533}
+        m_TargetAssemblyTypeName: Interaction, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 26ba3971-62ec-4f23-8163-402c83a7d5d7
     m_ActionName: Player/Interaction[/Keyboard/e]
   - m_PersistentCalls:
@@ -1047,6 +1059,67 @@ MonoBehaviour:
   maxValue: 100
   passiveValue: 0
   uiBar: {fileID: 4624428411823928378}
+--- !u!1001 &260151382242589962
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.245844
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.50476
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.232
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437726101652651748, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776004123255679641, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: m_Name
+      value: JumpPlace
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659289564991249124, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
+      propertyPath: JumpPlacePower
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 299173f2bdc496d4591c94aecdf781e7, type: 3}
 --- !u!114 &642787700891495943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,7 +1372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4643435916152325909, guid: 2ead29f2aca2c8241ac596842d0158b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.988
+      value: 0.401936
       objectReference: {fileID: 0}
     - target: {fileID: 4643435916152325909, guid: 2ead29f2aca2c8241ac596842d0158b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1573,3 +1646,4 @@ SceneRoots:
   - {fileID: 1501664088}
   - {fileID: 7738335272372707154}
   - {fileID: 5301292112952721526}
+  - {fileID: 260151382242589962}
