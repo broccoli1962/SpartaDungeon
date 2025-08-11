@@ -28,7 +28,7 @@ public class Interaction : MonoBehaviour
         if (Time.time - interactCheckTime > interactRate) {
             interactCheckTime = Time.time;
             //1-0 > 0.05f; 0.05 간격으로 체크
-            Ray ray = camera.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f));
+            Ray ray = camera.ScreenPointToRay(new Vector2(Screen.width/2f, Screen.height/2f+100));
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, interactRange, layerMask))

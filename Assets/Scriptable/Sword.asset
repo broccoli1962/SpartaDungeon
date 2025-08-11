@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Sword
   description: "\uB2E8\uC21C\uD55C \uAC80\uC774\uB2E4"
   icon: {fileID: 21300000, guid: 4f2f320a217307a48a107491b1d17ebb, type: 3}
-  dropObject: {fileID: 0}
+  dropObject: {fileID: 5881391749107010767, guid: 2ead29f2aca2c8241ac596842d0158b1, type: 3}
   canStack: 0
   maxStackAmount: 0
-  equipPrefab: {fileID: 0}
+  equipPrefab: {fileID: 5881391749107010767, guid: 2ead29f2aca2c8241ac596842d0158b1, type: 3}

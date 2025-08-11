@@ -10,7 +10,7 @@ public interface IInteractable
 
 public class ItemObject : MonoBehaviour, IInteractable
 {
-    ItemData data;
+    public ItemData data;
 
     public string GetInteractPrompt()
     {
