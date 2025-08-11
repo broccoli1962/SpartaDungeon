@@ -35,14 +35,4 @@ public class Player : MonoBehaviour
             Debug.Log("장비임");
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("DoSomething"))
-        {
-            Debug.Log("콜리전 트리거 온");
-            DoSomething trigger = collision.gameObject.GetComponent<DoSomething>();
-            trigger.OnEnter(this);
-        }
-    }
 }
