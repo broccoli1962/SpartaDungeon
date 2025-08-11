@@ -6,7 +6,7 @@ public class UICondition : MonoBehaviour
 {
     public Condition health;
 
-    private void Start()
+    private void Awake()
     {
         UIManager.Instance.uiCondition = this;
     }
