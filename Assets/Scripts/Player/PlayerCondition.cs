@@ -13,6 +13,8 @@ public class PlayerCondition : MonoBehaviour, IDamagable
     public UICondition uiCondition;
     public Condition Health { get { return uiCondition.health; } }
 
+    Coroutine testCoroutine;
+
     private void Update()
     {
         Health.RemoveValue(Health.passiveValue * Time.deltaTime);
@@ -41,29 +43,29 @@ public class PlayerCondition : MonoBehaviour, IDamagable
             }
         }
 
-        foreach (var duration in data.usableDurations)
+        foreach (var effect in data.usableEffects)
         {
-            switch (duration.UsableDuration)
+            switch (effect.UsableEffect)
             {
-                case EUsableDurationType.Regenation:
-                    StartCoroutine(HealthRegen(duration.durationValue));
+                case EUsableEffectType.Regenation:
+                    testCoroutine = StartCoroutine(HealthRegen(effect.value ,effect.durationValue));
                     break;
             }
         }
     }
 
-    IEnumerator HealthRegen(float duration)
+    IEnumerator HealthRegen(float value, float duration)
     {
-        float time = duration;
-        while(time > 0)
+        float timer = 0f;
+        float tick = 0.1f;
+
+        while(timer < duration)
         {
-            time -= Time.deltaTime;
-            Heal(2);
-            Debug.Log("회복");
-            if (time <= 0)
-            {
-                yield return null;
-            }
+            Heal(value);
+
+            Debug.Log($"남은 시간 {duration - timer}");
+            yield return new WaitForSeconds(0.1f);
+            timer += tick;
         }
     }
 }

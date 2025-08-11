@@ -16,16 +16,17 @@ public enum EUsableType
     Hunger,
     Stamina
 }
-public enum EUsableDurationType
+public enum EUsableEffectType
 {
     Speed,
     Regenation,
 }
 
 [Serializable]
-public class ItemDataUsableDuration
+public class ItemDataUsableEffect
 {
-    public EUsableDurationType UsableDuration;
+    public EUsableEffectType UsableEffect;
+    public float value;
     public float durationValue;
 }
 
@@ -54,7 +55,7 @@ public class ItemData : ScriptableObject
     public ItemDataUsable[] usables;
 
     [Header("UsableDuration")]
-    public ItemDataUsableDuration[] usableDurations;
+    public ItemDataUsableEffect[] usableEffects;
 
     [Header("Equip")]
     public GameObject equipPrefab;
