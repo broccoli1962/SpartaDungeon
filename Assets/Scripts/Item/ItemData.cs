@@ -1,4 +1,5 @@
 using OpenCover.Framework.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,20 @@ public enum EUsableType
     Hunger,
     Stamina
 }
+public enum EUsableDurationType
+{
+    Speed,
+    Regenation,
+}
 
-[SerializeField]
+[Serializable]
+public class ItemDataUsableDuration
+{
+    public EUsableDurationType UsableDuration;
+    public float durationValue;
+}
+
+[Serializable]
 public class ItemDataUsable
 {
     public EUsableType Usable;
@@ -39,6 +52,9 @@ public class ItemData : ScriptableObject
 
     [Header("Usable")]
     public ItemDataUsable[] usables;
+
+    [Header("UsableDuration")]
+    public ItemDataUsableDuration[] usableDurations;
 
     [Header("Equip")]
     public GameObject equipPrefab;

@@ -20,6 +20,7 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        PlayerManager.Instance.player.OnUseItem(data);
         Destroy(gameObject);
     }
 }
