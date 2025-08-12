@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,13 +27,9 @@ public class Player : MonoBehaviour
 
     public void OnUseItem(ItemData data)
     {
-        if(data.itemType == EItemType.Usable)
+        foreach (var effect in data.usables)
         {
-            condition.UseItem(data);
-        }
-        else
-        {
-            Debug.Log("¿Â∫Ò¿”");
+            StartCoroutine(effect.Apply(this));
         }
     }
 }
