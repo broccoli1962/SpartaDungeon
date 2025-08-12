@@ -79,8 +79,10 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         Debug.Log("키 입력 점프");
+        
         if(context.phase == InputActionPhase.Started && IsGround())
         {
+            PlayerManager.Instance.player.condition.Stamina.RemoveValue(20);
             _rigidbody.AddForce(jumpPower * Vector2.up, ForceMode.Impulse);
         }
     }
