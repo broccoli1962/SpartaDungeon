@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float jumpPower;
     public Vector2 currentInput;
     public LayerMask groundLayerMask;
+    public bool OnClimb = false;
 
     [Header("Look")]
     public Transform cameraContainer;
@@ -34,7 +35,14 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        Move();
+        if (OnClimb)
+        {
+            Climb();
+        }
+        else
+        {
+            Move();
+        }
     }
 
     public void LateUpdate()
@@ -49,6 +57,12 @@ public class PlayerController : MonoBehaviour
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
+    }
+
+    void Climb()
+    {
+        Vector3 climbVelocity = new Vector3(currentInput.x, currentInput.y, 0);
+        _rigidbody.velocity = climbVelocity;
     }
 
     void CameraLook()
@@ -79,9 +93,12 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         Debug.Log("키 입력 점프");
-        
-        if(context.phase == InputActionPhase.Started && IsGround())
+
+        if (context.phase == InputActionPhase.Started && IsGround() || OnClimb)
         {
+            if (OnClimb && !IsGround()) {
+                OnClimb = false;
+            }
             PlayerManager.Instance.player.condition.Stamina.RemoveValue(20);
             _rigidbody.AddForce(jumpPower * Vector2.up, ForceMode.Impulse);
         }

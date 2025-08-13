@@ -25,11 +25,29 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("DoSomething"))
+        {
+            DoSomething trigger = collision.gameObject.GetComponent<DoSomething>();
+            trigger.OnExit(this);
+        }
+    }
+
+
     public void OnUseItem(ItemData data)
     {
-        foreach (var effect in data.usables)
+        if(data.itemType == EItemType.Usable)
         {
-            StartCoroutine(effect.Apply(this));
+            foreach (var effect in data.usables)
+            {
+                StartCoroutine(effect.Apply(this));
+            }
+        }
+        else if(data.itemType == EItemType.Equipment)
+        {
+            GameObject obj = Instantiate(data.equipPrefab, transform.position + new Vector3(0, 0, 2), Quaternion.identity);
+            obj.transform.SetParent(this.transform);
         }
     }
 }

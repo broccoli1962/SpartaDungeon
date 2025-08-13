@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveObject : MonoBehaviour
+public class MoveObject : DoSomething
 {
     public float movementSpeed;
     public float moveX;
@@ -22,19 +22,13 @@ public class MoveObject : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, afterPlace, movementSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public override void OnEnter(Player player)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.transform.SetParent(this.transform);
-        }
+        player.transform.SetParent(this.transform);
     }
 
-    private void OnCollisionExit(Collision collision)
+    public override void OnExit(Player player)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.transform.SetParent(null);
-        }
+        player.transform.SetParent(null);
     }
 }
