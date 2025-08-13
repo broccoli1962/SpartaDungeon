@@ -37,17 +37,9 @@ public class Player : MonoBehaviour
 
     public void OnUseItem(ItemData data)
     {
-        if(data.itemType == EItemType.Usable)
+        foreach (var effect in data.usables)
         {
-            foreach (var effect in data.usables)
-            {
-                StartCoroutine(effect.Apply(this));
-            }
-        }
-        else if(data.itemType == EItemType.Equipment)
-        {
-            GameObject obj = Instantiate(data.equipPrefab, transform.position + new Vector3(0, 0, 2), Quaternion.identity);
-            obj.transform.SetParent(this.transform);
+            StartCoroutine(effect.Apply(this));
         }
     }
 }
